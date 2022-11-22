@@ -296,19 +296,117 @@
 
 
     <script>
-        
+        // Check answers
         let totalCorrect = 0;
         function checkAnswers() {
             var q1Answer = document.getElementById("q1").value;
             if (q1Answer == "Safari") {
                 q1.classList.add("correct");
-
                 totalCorrect++;
             }
             else {
                 q1.classList.add("incorrect");
             }
 
+            var q2Answer = document.getElementById("q2").value;
+            if (q2Answer == "anrufen") {
+                q2.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q2.classList.add("incorrect");
+            }
+
+            var q3Answer = document.getElementById("q3").value;
+            if (q3Answer == "Trockenzeit") {
+                q3.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q3.classList.add("incorrect");
+            }
+
+            var q4Answer = document.getElementById("q4").value;
+            if (q4Answer == "Ferien") {
+                q4.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q4.classList.add("incorrect");
+            }
+
+            var q5Answer = document.getElementById("q5").value;
+            if (q5Answer == "geführte") {
+                q5.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q5.classList.add("incorrect");
+            }
+
+            var q6Answer = document.getElementById("q6").value;
+            if (q6Answer == "Nationalpark") {
+                q6.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q6.classList.add("incorrect");
+            }
+
+            var q7Answer = document.getElementById("q7").value;
+            if (q7Answer == "gefährlich") {
+                q7.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q7.classList.add("incorrect");
+            }
+
+            var q8Answer = document.getElementById("q8").value;
+            if (q8Answer == "Experten") {
+                q8.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q8.classList.add("incorrect");
+            }
+
+            var q9Answer = document.getElementById("q9").value;
+            if (q9Answer == "online") {
+                q9.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q9.classList.add("incorrect");
+            }
+
+            var q10Answer = document.getElementById("q10").value;
+            if (q10Answer == "Tiere") {
+                q10.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q10.classList.add("incorrect");
+            }
+
+            var q11Answer = document.getElementById("q11").value;
+            if (q11Answer == "Elefant") {
+                q11.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q11.classList.add("incorrect");
+            }
+
+            var q12Answer = document.getElementById("q12").value;
+            if (q12Answer == "sehen") {
+                q12.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q12.classList.add("incorrect");
+            }
+            // Progress bar.
             document.getElementById("totalCorrect").innerHTML = totalCorrect;
             progressBar();
 
