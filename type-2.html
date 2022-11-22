@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+
+            background: darkgrey
+        }
+
+        button {
+            color: blue;
+            border: 1px solid blue;
+            padding: 5px;
+            font-size: medium;
+        }
+
+        .mc-dropdown {
+            border-radius: 0.25em;
+            border: 1px solid #a0a0a0;
+            padding: 0.1875em 1.5em 0.1875em 0.5em;
+            text-overflow: ellipsis;
+        }
+
+        .correct {
+            background: lightgreen;
+        }
+
+        .incorrect {
+            background: lightsalmon;
+        }
+
+        #progressBar {
+            width: 400px;
+            background-color: lightgrey;
+        }
+
+        #progress {
+            width: 0%;
+            height: 30px;
+            background-color: green;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- FILL THE GAPS (WITH WORDS) -->
+    <p>Elefant, Ferien, geführte, Tiere, gefährlich, sehen, Nationalpark, anrufen, Experten, Trockenzeit,
+        online, Safari</p>
+    <p>&nbsp;</p>
+
+    <p>V: Hey Lisa, dieses Jahr wollten wir doch zusammen eine
+
+        <select class="mc-dropdown" id="q1">
+            <option></option>
+            <option>Elefant</option>
+            <option>Ferien</option>
+            <option>geführte</option>
+            <option>Tiere</option>
+            <option>gefährlich</option>
+            <option>sehen</option>
+            <option>Nationalpark</option>
+            <option>anrufen</option>
+            <option>Experten</option>
+            <option>Trockenzeit</option>
+            <option>online</option>
+            <option>Safari</option>
+        </select>
+
+        -Tour machen…Erinnerst du dich noch daran?
+    </p>
+
+    <button onclick="checkAnswers()">Überprüfen</button> <br><br>
+    <span><span id="totalCorrect"></span>/12</span> <button onclick="restart()">Wiederholen</button>
+
+    <div id="progressBar">
+        <div id="progress"></div>
+    </div>
+
+
+    <script>
+        let totalCorrect = 0;
+
+        function checkAnswers() {
+            var q1Answer = document.getElementById("q1").value;
+            if (q1Answer == "Safari") {
+                q1.classList.add("correct");
+
+                totalCorrect++;
+            }
+            else {
+                q1.classList.add("incorrect");
+            }
+
+            document.getElementById("totalCorrect").innerHTML = totalCorrect;
+            progressBar();
+        }
+
+        function restart() {
+            location.reload();
+        }
+
+
+        var i = 0;
+        function progressBar() {
+            var percentageCorrect = (totalCorrect / 12) * 100;
+
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("progress");
+                var width = 1;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    if (width <= percentageCorrect) {
+                        if (width >= 100) {
+                            clearInterval(id);
+                            i = 0;
+                        } else {
+                            width++;
+                            elem.style.width = width + "%";
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
