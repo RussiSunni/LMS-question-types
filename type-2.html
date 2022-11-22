@@ -1,15 +1,17 @@
-<!doctype html>
-<html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 16px;
             line-height: 1.8em;
-            background: lightgrey
+            background: lightgrey;
+            overflow-y: scroll;
+        }
+
+        .main {
+            overflow: scroll;
+            max-height: 700px;
         }
 
         button {
@@ -64,234 +66,238 @@
 </head>
 
 <body>
+    <div class="main">
+        <!-- FILL THE GAPS (WITH WORDS) -->
+        <p>Elefant, Ferien, geführte, Tiere, gefährlich, sehen, Nationalpark, anrufen, Experten, Trockenzeit,
+            online, Safari</p>
 
-    <!-- FILL THE GAPS (WITH WORDS) -->
-    <p>Elefant, Ferien, geführte, Tiere, gefährlich, sehen, Nationalpark, anrufen, Experten, Trockenzeit,
-        online, Safari</p>
+        <p>&nbsp;</p>
 
-    <p>&nbsp;</p>
+        <p>V: Hey Lisa, dieses Jahr wollten wir doch zusammen eine
+            <select class="mc-dropdown" id="q1">
+                <option></option>
+                <option>Elefant</option>
+                <option>Ferien</option>
+                <option>geführte</option>
+                <option>Tiere</option>
+                <option>gefährlich</option>
+                <option>sehen</option>
+                <option>Nationalpark</option>
+                <option>anrufen</option>
+                <option>Experten</option>
+                <option>Trockenzeit</option>
+                <option>online</option>
+                <option>Safari</option>
+            </select>
+            -Tour machen…Erinnerst du dich noch daran?
+        </p>
 
-    <p>V: Hey Lisa, dieses Jahr wollten wir doch zusammen eine
-        <select class="mc-dropdown" id="q1">
-            <option></option>
-            <option>Elefant</option>
-            <option>Ferien</option>
-            <option>geführte</option>
-            <option>Tiere</option>
-            <option>gefährlich</option>
-            <option>sehen</option>
-            <option>Nationalpark</option>
-            <option>anrufen</option>
-            <option>Experten</option>
-            <option>Trockenzeit</option>
-            <option>online</option>
-            <option>Safari</option>
-        </select>
-        -Tour machen…Erinnerst du dich noch daran?
-    </p>
+        <p>L: Hey Veronica, na klar erinnere ich mich daran! Ich wollte dich auch schon deswegen <select
+                class="mc-dropdown" id="q2">
+                <option></option>
+                <option>Elefant</option>
+                <option>Ferien</option>
+                <option>geführte</option>
+                <option>Tiere</option>
+                <option>gefährlich</option>
+                <option>sehen</option>
+                <option>Nationalpark</option>
+                <option>anrufen</option>
+                <option>Experten</option>
+                <option>Trockenzeit</option>
+                <option>online</option>
+                <option>Safari</option>
+            </select>!</p>
 
-    <p>L: Hey Veronica, na klar erinnere ich mich daran! Ich wollte dich auch schon deswegen <select class="mc-dropdown"
-            id="q2">
-            <option></option>
-            <option>Elefant</option>
-            <option>Ferien</option>
-            <option>geführte</option>
-            <option>Tiere</option>
-            <option>gefährlich</option>
-            <option>sehen</option>
-            <option>Nationalpark</option>
-            <option>anrufen</option>
-            <option>Experten</option>
-            <option>Trockenzeit</option>
-            <option>online</option>
-            <option>Safari</option>
-        </select>!</p>
+        <p>V: Cool, dann lass uns jetzt darüber reden! Die beste Zeit wäre wohl in der <select class="mc-dropdown"
+                id="q3">
+                <option></option>
+                <option>Elefant</option>
+                <option>Ferien</option>
+                <option>geführte</option>
+                <option>Tiere</option>
+                <option>gefährlich</option>
+                <option>sehen</option>
+                <option>Nationalpark</option>
+                <option>anrufen</option>
+                <option>Experten</option>
+                <option>Trockenzeit</option>
+                <option>online</option>
+                <option>Safari</option>
+            </select>. Die geht
+            von Dezember bis März. Wann hättest du Zeit?</p>
 
-    <p>V: Cool, dann lass uns jetzt darüber reden! Die beste Zeit wäre wohl in der <select class="mc-dropdown" id="q3">
-            <option></option>
-            <option>Elefant</option>
-            <option>Ferien</option>
-            <option>geführte</option>
-            <option>Tiere</option>
-            <option>gefährlich</option>
-            <option>sehen</option>
-            <option>Nationalpark</option>
-            <option>anrufen</option>
-            <option>Experten</option>
-            <option>Trockenzeit</option>
-            <option>online</option>
-            <option>Safari</option>
-        </select>. Die geht
-        von Dezember bis März. Wann hättest du Zeit?</p>
+        <p>L: Am besten wäre es Mitte Februar, weil ich dann <select class="mc-dropdown" id="q4">
+                <option></option>
+                <option>Elefant</option>
+                <option>Ferien</option>
+                <option>geführte</option>
+                <option>Tiere</option>
+                <option>gefährlich</option>
+                <option>sehen</option>
+                <option>Nationalpark</option>
+                <option>anrufen</option>
+                <option>Experten</option>
+                <option>Trockenzeit</option>
+                <option>online</option>
+                <option>Safari</option>
+            </select> habe … Kannst du da auch?</p>
 
-    <p>L: Am besten wäre es Mitte Februar, weil ich dann <select class="mc-dropdown" id="q4">
-            <option></option>
-            <option>Elefant</option>
-            <option>Ferien</option>
-            <option>geführte</option>
-            <option>Tiere</option>
-            <option>gefährlich</option>
-            <option>sehen</option>
-            <option>Nationalpark</option>
-            <option>anrufen</option>
-            <option>Experten</option>
-            <option>Trockenzeit</option>
-            <option>online</option>
-            <option>Safari</option>
-        </select> habe … Kannst du da auch?</p>
+        <p>V: Ja, das passt mir, ich habe da auch Zeit! Sollen wir eine <select class="mc-dropdown" id="q5">
+                <option></option>
+                <option>Elefant</option>
+                <option>Ferien</option>
+                <option>geführte</option>
+                <option>Tiere</option>
+                <option>gefährlich</option>
+                <option>sehen</option>
+                <option>Nationalpark</option>
+                <option>anrufen</option>
+                <option>Experten</option>
+                <option>Trockenzeit</option>
+                <option>online</option>
+                <option>Safari</option>
+            </select> Tour buchen oder alleine
+            durch den <select class="mc-dropdown" id="q6">
+                <option></option>
+                <option>Elefant</option>
+                <option>Ferien</option>
+                <option>geführte</option>
+                <option>Tiere</option>
+                <option>gefährlich</option>
+                <option>sehen</option>
+                <option>Nationalpark</option>
+                <option>anrufen</option>
+                <option>Experten</option>
+                <option>Trockenzeit</option>
+                <option>online</option>
+                <option>Safari</option>
+            </select> fahren?</p>
 
-    <p>V: Ja, das passt mir, ich habe da auch Zeit! Sollen wir eine <select class="mc-dropdown" id="q5">
-            <option></option>
-            <option>Elefant</option>
-            <option>Ferien</option>
-            <option>geführte</option>
-            <option>Tiere</option>
-            <option>gefährlich</option>
-            <option>sehen</option>
-            <option>Nationalpark</option>
-            <option>anrufen</option>
-            <option>Experten</option>
-            <option>Trockenzeit</option>
-            <option>online</option>
-            <option>Safari</option>
-        </select> Tour buchen oder alleine
-        durch den <select class="mc-dropdown" id="q6">
-            <option></option>
-            <option>Elefant</option>
-            <option>Ferien</option>
-            <option>geführte</option>
-            <option>Tiere</option>
-            <option>gefährlich</option>
-            <option>sehen</option>
-            <option>Nationalpark</option>
-            <option>anrufen</option>
-            <option>Experten</option>
-            <option>Trockenzeit</option>
-            <option>online</option>
-            <option>Safari</option>
-        </select> fahren?</p>
+        <p>L: Definitiv eine Tour! Das kann nämlich sehr <select class="mc-dropdown" id="q7">
+                <option></option>
+                <option>Elefant</option>
+                <option>Ferien</option>
+                <option>geführte</option>
+                <option>Tiere</option>
+                <option>gefährlich</option>
+                <option>sehen</option>
+                <option>Nationalpark</option>
+                <option>anrufen</option>
+                <option>Experten</option>
+                <option>Trockenzeit</option>
+                <option>online</option>
+                <option>Safari</option>
+            </select> sein, wenn man alleine unterwegs ist,
+            außerdem sind wir keine <select class="mc-dropdown" id="q8">
+                <option></option>
+                <option>Elefant</option>
+                <option>Ferien</option>
+                <option>geführte</option>
+                <option>Tiere</option>
+                <option>gefährlich</option>
+                <option>sehen</option>
+                <option>Nationalpark</option>
+                <option>anrufen</option>
+                <option>Experten</option>
+                <option>Trockenzeit</option>
+                <option>online</option>
+                <option>Safari</option>
+            </select> und wissen nicht, wie wir uns richtig verhalten sollen.</p>
 
-    <p>L: Definitiv eine Tour! Das kann nämlich sehr <select class="mc-dropdown" id="q7">
-            <option></option>
-            <option>Elefant</option>
-            <option>Ferien</option>
-            <option>geführte</option>
-            <option>Tiere</option>
-            <option>gefährlich</option>
-            <option>sehen</option>
-            <option>Nationalpark</option>
-            <option>anrufen</option>
-            <option>Experten</option>
-            <option>Trockenzeit</option>
-            <option>online</option>
-            <option>Safari</option>
-        </select> sein, wenn man alleine unterwegs ist,
-        außerdem sind wir keine <select class="mc-dropdown" id="q8">
-            <option></option>
-            <option>Elefant</option>
-            <option>Ferien</option>
-            <option>geführte</option>
-            <option>Tiere</option>
-            <option>gefährlich</option>
-            <option>sehen</option>
-            <option>Nationalpark</option>
-            <option>anrufen</option>
-            <option>Experten</option>
-            <option>Trockenzeit</option>
-            <option>online</option>
-            <option>Safari</option>
-        </select> und wissen nicht, wie wir uns richtig verhalten sollen.</p>
+        <p>V: Ja, da hast du recht… Dann buchen wir eine Tour <select class="mc-dropdown" id="q9">
+                <option></option>
+                <option>Elefant</option>
+                <option>Ferien</option>
+                <option>geführte</option>
+                <option>Tiere</option>
+                <option>gefährlich</option>
+                <option>sehen</option>
+                <option>Nationalpark</option>
+                <option>anrufen</option>
+                <option>Experten</option>
+                <option>Trockenzeit</option>
+                <option>online</option>
+                <option>Safari</option>
+            </select> oder?</p>
 
-    <p>V: Ja, da hast du recht… Dann buchen wir eine Tour <select class="mc-dropdown" id="q9">
-            <option></option>
-            <option>Elefant</option>
-            <option>Ferien</option>
-            <option>geführte</option>
-            <option>Tiere</option>
-            <option>gefährlich</option>
-            <option>sehen</option>
-            <option>Nationalpark</option>
-            <option>anrufen</option>
-            <option>Experten</option>
-            <option>Trockenzeit</option>
-            <option>online</option>
-            <option>Safari</option>
-        </select> oder?</p>
+        <p>L: Ja, das ist glaube ich die beste Idee! Das ist so aufregend! Was meinst du… welche <select
+                class="mc-dropdown" id="q10">
+                <option></option>
+                <option>Elefant</option>
+                <option>Ferien</option>
+                <option>geführte</option>
+                <option>Tiere</option>
+                <option>gefährlich</option>
+                <option>sehen</option>
+                <option>Nationalpark</option>
+                <option>anrufen</option>
+                <option>Experten</option>
+                <option>Trockenzeit</option>
+                <option>online</option>
+                <option>Safari</option>
+            </select>
+            werden wir sehen?
+        </p>
 
-    <p>L: Ja, das ist glaube ich die beste Idee! Das ist so aufregend! Was meinst du… welche <select class="mc-dropdown"
-            id="q10">
-            <option></option>
-            <option>Elefant</option>
-            <option>Ferien</option>
-            <option>geführte</option>
-            <option>Tiere</option>
-            <option>gefährlich</option>
-            <option>sehen</option>
-            <option>Nationalpark</option>
-            <option>anrufen</option>
-            <option>Experten</option>
-            <option>Trockenzeit</option>
-            <option>online</option>
-            <option>Safari</option>
-        </select>
-        werden wir sehen?
-    </p>
+        <p>V: Ich hoffe wir können alle Big Five sehen!
+        </p>
 
-    <p>V: Ich hoffe wir können alle Big Five sehen!
-    </p>
+        <p>L: Was sind denn die Big Five?</p>
 
-    <p>L: Was sind denn die Big Five?</p>
+        <p>V: Das sind die fünf bekanntesten Tiere der Savanne! Dazu zählen: der Löwe, der <select class="mc-dropdown"
+                id="q11">
+                <option></option>
+                <option>Elefant</option>
+                <option>Ferien</option>
+                <option>geführte</option>
+                <option>Tiere</option>
+                <option>gefährlich</option>
+                <option>sehen</option>
+                <option>Nationalpark</option>
+                <option>anrufen</option>
+                <option>Experten</option>
+                <option>Trockenzeit</option>
+                <option>online</option>
+                <option>Safari</option>
+            </select>, der
+            Leopard, der Nashorn und der Büffel
+        </p>
 
-    <p>V: Das sind die fünf bekanntesten Tiere der Savanne! Dazu zählen: der Löwe, der <select class="mc-dropdown"
-            id="q11">
-            <option></option>
-            <option>Elefant</option>
-            <option>Ferien</option>
-            <option>geführte</option>
-            <option>Tiere</option>
-            <option>gefährlich</option>
-            <option>sehen</option>
-            <option>Nationalpark</option>
-            <option>anrufen</option>
-            <option>Experten</option>
-            <option>Trockenzeit</option>
-            <option>online</option>
-            <option>Safari</option>
-        </select>, der
-        Leopard, der Nashorn und der Büffel
-    </p>
-
-    <p>L: Wow, das wusste ich gar nicht! Ich hoffe wir <select class="mc-dropdown" id="q12">
-            <option></option>
-            <option>Elefant</option>
-            <option>Ferien</option>
-            <option>geführte</option>
-            <option>Tiere</option>
-            <option>gefährlich</option>
-            <option>sehen</option>
-            <option>Nationalpark</option>
-            <option>anrufen</option>
-            <option>Experten</option>
-            <option>Trockenzeit</option>
-            <option>online</option>
-            <option>Safari</option>
-        </select> sie alle!
-    </p>
+        <p>L: Wow, das wusste ich gar nicht! Ich hoffe wir <select class="mc-dropdown" id="q12">
+                <option></option>
+                <option>Elefant</option>
+                <option>Ferien</option>
+                <option>geführte</option>
+                <option>Tiere</option>
+                <option>gefährlich</option>
+                <option>sehen</option>
+                <option>Nationalpark</option>
+                <option>anrufen</option>
+                <option>Experten</option>
+                <option>Trockenzeit</option>
+                <option>online</option>
+                <option>Safari</option>
+            </select> sie alle!
+        </p>
 
 
 
 
-    <button id="checkAnswerBtn" onclick="checkAnswers()">Überprüfen</button>
+        <button id="checkAnswerBtn" onclick="checkAnswers()">Überprüfen</button>
 
-    <div id="progressGroup" class="flex hidden">
-        <div id="progressBar">
-            <div id="progress"></div>
-        </div>&nbsp;
-        <span class="totalCorrect"><span id="totalCorrect"></span>&nbsp;/12</span>
-        <span style="margin-left: 50px">
-            <button onclick="restart()">Lösung anzeigen</button>
-            <button onclick="restart()">Wiederholen</button>
-        </span>
+        <div id="progressGroup" class="flex hidden">
+            <div id="progressBar">
+                <div id="progress"></div>
+            </div>&nbsp;
+            <span class="totalCorrect"><span id="totalCorrect"></span>&nbsp;/12</span>
+            <span style="margin-left: 50px">
+                <button onclick="restart()">Lösung anzeigen</button>
+                <button onclick="restart()">Wiederholen</button>
+            </span>
+        </div>
+        <p>&nbsp;</p>
+
     </div>
 
 
@@ -448,5 +454,3 @@
         }
     </script>
 </body>
-
-</html>
