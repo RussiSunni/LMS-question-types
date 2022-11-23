@@ -98,15 +98,17 @@
     <!-- FILL IN THE GAPS (NO WORDS) -->
 
     <p>Tim&nbsp;<input type="text" id="q1a">&nbsp;mit Abdel zum Schulball <input type="text" id="q2b">. (gehen)</p>
-    <p>Ich _______________ morgen Kuchen ________________. (backen)</p>
-    <p>Wir __________________ am Samstag in den Urlaub ______________________. (fahren)</p>
-    <p>Anna und Melek __________________ sich gemeinsam einen Hund
-        _____________________. (kaufen)</p>
-    <p>Sie _____________ den Bus ____________. (wählen)</p>
-    <p>Bonus-Aufgabe:</p>
+    <p>Ich&nbsp;<input type="text" id="q2a">&nbsp;morgen Kuchen&nbsp;<input type="text" id="q2b">. (backen)</p>
+    <p>Wir&nbsp;<input type="text" id="q3a">&nbsp; am Samstag in den Urlaub&nbsp;<input type="text" id="q3b">&nbsp;.
+        (fahren)</p>
+    <p>Anna und Melek&nbsp;<input type="text" id="q4a">&nbsp; sich gemeinsam einen Hund
+        &nbsp;<input type="text" id="q4b">&nbsp;. (kaufen)</p>
+    <p>Sie &nbsp;<input type="text" id="q5a">&nbsp; den Bus&nbsp;<input type="text" id="q5b">&nbsp;. (wählen)</p>
+    <p><strong>Bonus-Aufgabe:</strong></p>
     <p>Bedenke! Bei Fragestellungen steht das Verb an erster Stelle. Beim Futur I beginnt jedoch nicht
         das Vollverb den Satz.</p>
-    <p>_________________ du morgen auch zu Emilys Geburtstag ________________? (kommen)</p>
+    <p><input type="text" id="q6a">&nbsp;du morgen auch zu Emilys Geburtstag&nbsp;<input type="text" id="q6b">? (kommen)
+    </p>
     <button id="checkAnswerBtn" onclick="checkAnswers()">
         <svg style="height: 15px; fill: blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
@@ -164,12 +166,102 @@
             }
 
             var q1bAnswer = document.getElementById("q1b").value;
-            if (q1bAnswer == "wird") {
+            if (q1bAnswer == "gehen") {
                 q1b.classList.add("correct");
                 totalCorrect++;
             }
             else {
                 q1b.classList.add("incorrect");
+            }
+
+            var q2aAnswer = document.getElementById("q2a").value;
+            if (q2aAnswer == "werde") {
+                q2a.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q2a.classList.add("incorrect");
+            }
+
+            var q2bAnswer = document.getElementById("q2b").value;
+            if (q2bAnswer == "backen") {
+                q2b.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q2b.classList.add("incorrect");
+            }
+
+            var q3aAnswer = document.getElementById("q3a").value;
+            if (q3aAnswer == "werden") {
+                q3a.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q3a.classList.add("incorrect");
+            }
+
+            var q3bAnswer = document.getElementById("q3b").value;
+            if (q3bAnswer == "fahren") {
+                q3b.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q3b.classList.add("incorrect");
+            }
+
+            var q4aAnswer = document.getElementById("q4a").value;
+            if (q4aAnswer == "werden") {
+                q4a.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q4a.classList.add("incorrect");
+            }
+
+            var q4bAnswer = document.getElementById("q4b").value;
+            if (q4bAnswer == "kaufen") {
+                q4b.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q4b.classList.add("incorrect");
+            }
+
+            var q5aAnswer = document.getElementById("q5a").value;
+            if (q5aAnswer == "wird") {
+                q5a.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q5a.classList.add("incorrect");
+            }
+
+            var q5bAnswer = document.getElementById("q5b").value;
+            if (q5bAnswer == "wird") {
+                q5b.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q5b.classList.add("incorrect");
+            }
+
+            var q6aAnswer = document.getElementById("q6a").value;
+            if (q6aAnswer == "Wirst") {
+                q6a.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q6a.classList.add("incorrect");
+            }
+
+            var q6bAnswer = document.getElementById("q6b").value;
+            if (q6bAnswer == "kommen") {
+                q6b.classList.add("correct");
+                totalCorrect++;
+            }
+            else {
+                q6b.classList.add("incorrect");
             }
         }
 
