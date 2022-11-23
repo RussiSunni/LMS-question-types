@@ -46,6 +46,14 @@
             margin-right: 10px;
         }
 
+        .correct {
+            background: lightgreen;
+        }
+
+        .incorrect {
+            background: lightsalmon;
+        }
+
 
         #progressBar {
             width: 200px;
@@ -163,12 +171,24 @@
 
             if (list2Children[0].id == "answer3") {
                 totalCorrect++;
+                list2Children[0].classList.add("correct");
+            }
+            else {
+                list2Children[0].classList.add("incorrect");
             }
             if (list2Children[1].id == "answer2") {
                 totalCorrect++;
+                list2Children[1].classList.add("correct");
+            }
+            else {
+                list2Children[1].classList.add("incorrect");
             }
             if (list2Children[2].id == "answer1") {
                 totalCorrect++;
+                list2Children[2].classList.add("correct");
+            }
+            else {
+                list2Children[2].classList.add("incorrect");
             }
 
             // Progress bar.
