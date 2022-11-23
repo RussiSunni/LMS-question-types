@@ -206,12 +206,12 @@
             // Hide this button.
             var checkAnswerBtn = document.getElementById("checkAnswerBtn");
             checkAnswerBtn.classList.add("hidden");
+            checkAnswerBtn.classList.remove("visible");
 
             //Unhide other buttons.
             var progressGroup = document.getElementById("progressGroup");
             progressGroup.classList.remove("hidden");
-
-            console.log(totalCorrect);
+            progressGroup.classList.add("visible");
         }
 
         function restart() {
