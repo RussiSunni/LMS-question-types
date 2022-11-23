@@ -1,55 +1,204 @@
-<!doctype html>
-<html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jQuery UI Sortable - Default functionality</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <style>
-        #sortable {
+        .sortable {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            width: 60%;
+            width: 100%;
         }
 
-        #sortable li {
+        .sortable li {
             margin: 0 3px 3px 3px;
             padding: 0.4em;
             padding-left: 1.5em;
-            font-size: 1.4em;
-            height: 18px;
+            font-size: 16px;
+            height: 50px;
         }
 
-        #sortable li span {
+        .sortable li span {
             position: absolute;
             margin-left: -1.3em;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.8em;
+            background: lightgrey;
+            overflow-y: scroll;
+        }
+
+        .main {
+            overflow: scroll;
+            max-height: 700px;
+        }
+
+        button {
+            color: blue;
+            border: 1px solid blue;
+            padding: 5px;
+            font-size: medium;
+            margin-right: 10px;
+        }
+
+
+        #progressBar {
+            width: 200px;
+            border: 1px solid black;
+            border-radius: 0.25em;
+            background-color: lightgrey;
+        }
+
+        #progress {
+            width: 0%;
+            height: 30px;
+            background-color: green;
+        }
+
+        .totalCorrect {
+            font-size: 26px;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
         $(function () {
-            $("#sortable").sortable();
-        });
+            $("#list").sortable();
+        });       
     </script>
 </head>
 
 <body>
+    <div class="flex">
+        <ul id="list" class="sortable">
+            <li id="answer1" class="ui-state-default"><strong>Letztes Jahr</strong> hat Harry erfahren, dass Voldemort
+                wieder
+                zurückgekehrt ist, und,
+                dass niemand innerhalb und außerhalb Hogwarts sicher ist.</li>
+            <li id="answer2" class="ui-state-default"><strong>Jetzt</strong> sprechen die Beiden miteinander</li>
+            <li id="answer3" class="ui-state-default"><strong>Früher</strong> wusste Harry nicht, dass er ein Zauberer
+                ist, doch an
+                seinem 11.
+                Geburtstag besuchte
+                Hagrid ihn erneut und überreichte ihm seine Einladung nach Hogwarts.</li>
+            <li id="answer4" class="ui-state-default"><strong>Vor langer Zeit</strong> wurde die Familie der Potters von
+                Voldemort
+                heimgesucht und er
+                tötete beide
+                Eltern.</li>
+            <li id="answer5" class="ui-state-default"><strong>Letztens</strong> ist er zu seinem Patenonkel Sirius
+                gereist, um dort
+                Weihnachten zu
+                verbringen.
+            </li>
+            <li id="answer6" class="ui-state-default"><strong>Damals</strong> brachte Hagrid ihn zu seiner Tante Petunia
+                und ihrer
+                Familie.</li>
+            <li id="answer7" class="ui-state-default"><strong>Vor Kurzem</strong> musste er dennoch an die Schule
+                zurückkehren und weiter
+                seinem
+                Alltag
+                nachgehen.</li>
+        </ul>
+    </div>
 
-    <ul id="sortable">
-        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
-        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
-        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
-        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
-    </ul>
+    <button id="checkAnswerBtn" onclick="checkAnswers()">Überprüfen</button>
+
+    <div id="progressGroup" class="flex hidden">
+        <div id="progressBar">
+            <div id="progress"></div>
+        </div>&nbsp;
+        <span class="totalCorrect"><span id="totalCorrect"></span>&nbsp;/7</span>
+        <span style="margin-left: 50px">
+            <button onclick="restart()">Lösung anzeigen</button>
+            <button onclick="restart()">Wiederholen</button>
+        </span>
+    </div>
+    <p>&nbsp;</p>
+
+    <script>
+        let totalCorrect = 0;
+
+        function checkAnswers() {
+            var list = document.getElementById("list");
+            var listChildren = list.children;
+
+            if (listChildren[0].id == "answer4") {
+                totalCorrect++;
+            }
+            if (listChildren[1].id == "answer6") {
+                totalCorrect++;
+            }
+            if (listChildren[2].id == "answer3") {
+                totalCorrect++;
+            }
+            if (listChildren[3].id == "answer1") {
+                totalCorrect++;
+            }
+            if (listChildren[4].id == "answer7") {
+                totalCorrect++;
+            }
+            if (listChildren[5].id == "answer5") {
+                totalCorrect++;
+            }
+            if (listChildren[6].id == "answer2") {
+                totalCorrect++;
+            }
+
+            // Progress bar.
+            document.getElementById("totalCorrect").innerHTML = totalCorrect;
+            progressBar();
+
+            // Hide this button.
+            var checkAnswerBtn = document.getElementById("checkAnswerBtn");
+            checkAnswerBtn.classList.add("hidden");
+
+            //Unhide other buttons.
+            var progressGroup = document.getElementById("progressGroup");
+            progressGroup.classList.remove("hidden");
+
+            console.log(totalCorrect);
+        }
+
+        function restart() {
+            location.reload();
+        }
+
+
+        var i = 0;
+        function progressBar() {
+            var percentageCorrect = (totalCorrect / 7) * 100;
+
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("progress");
+                var width = 1;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    if (width <= percentageCorrect) {
+                        if (width >= 100) {
+                            clearInterval(id);
+                            i = 0;
+                        } else {
+                            width++;
+                            elem.style.width = width + "%";
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
 
 </body>
-
-</html>
