@@ -97,7 +97,7 @@
 
     <!-- FILL IN THE GAPS (NO WORDS) -->
 
-    <p>Tim&nbsp;<input type="text" id="q1a">&nbsp;mit Abdel zum Schulball <input type="text" id="q2b">. (gehen)</p>
+    <p>Tim&nbsp;<input type="text" id="q1a">&nbsp;mit Abdel zum Schulball <input type="text" id="q1b">. (gehen)</p>
     <p>Ich&nbsp;<input type="text" id="q2a">&nbsp;morgen Kuchen&nbsp;<input type="text" id="q2b">. (backen)</p>
     <p>Wir&nbsp;<input type="text" id="q3a">&nbsp; am Samstag in den Urlaub&nbsp;<input type="text" id="q3b">&nbsp;.
         (fahren)</p>
@@ -262,6 +262,52 @@
             }
             else {
                 q6b.classList.add("incorrect");
+            }
+
+            // Progress bar.
+            document.getElementById("totalCorrect").innerHTML = totalCorrect;
+            progressBar();
+
+            // Hide this button.
+            var checkAnswerBtn = document.getElementById("checkAnswerBtn");
+            checkAnswerBtn.classList.add("hidden");
+            checkAnswerBtn.classList.remove("visible");
+
+            //Unhide other buttons.
+            var progressGroup = document.getElementById("progressGroup");
+            progressGroup.classList.remove("hidden");
+            progressGroup.classList.add("visible");
+        }
+
+        function restart() {
+            location.reload();
+        }
+
+        function showCorrectAnswers() {
+
+        }
+
+
+        var i = 0;
+        function progressBar() {
+            var percentageCorrect = (totalCorrect / 12) * 100;
+
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("progress");
+                var width = 1;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    if (width <= percentageCorrect) {
+                        if (width >= 100) {
+                            clearInterval(id);
+                            i = 0;
+                        } else {
+                            width++;
+                            elem.style.width = width + "%";
+                        }
+                    }
+                }
             }
         }
 
