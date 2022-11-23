@@ -47,6 +47,13 @@
             margin-right: 10px;
         }
 
+        .correct {
+            background: lightgreen;
+        }
+
+        .incorrect {
+            background: lightsalmon;
+        }
 
         #progressBar {
             width: 200px;
@@ -178,26 +185,54 @@
 
             if (listChildren[0].id == "answer4") {
                 totalCorrect++;
+                listChildren[0].classList.add("correct");
             }
-            if (listChildren[1].id == "answer6") {
-                totalCorrect++;
-            }
-            if (listChildren[2].id == "answer3") {
-                totalCorrect++;
-            }
-            if (listChildren[3].id == "answer1") {
-                totalCorrect++;
-            }
-            if (listChildren[4].id == "answer7") {
-                totalCorrect++;
-            }
-            if (listChildren[5].id == "answer5") {
-                totalCorrect++;
-            }
-            if (listChildren[6].id == "answer2") {
-                totalCorrect++;
+            else {
+                listChildren[0].classList.add("incorrect");
             }
 
+            if (listChildren[1].id == "answer6") {
+                totalCorrect++;
+                listChildren[1].classList.add("correct");
+            } else {
+                listChildren[1].classList.add("incorrect");
+            }
+
+            if (listChildren[2].id == "answer3") {
+                totalCorrect++;
+                listChildren[2].classList.add("correct");
+            } else {
+                listChildren[2].classList.add("incorrect");
+            }
+
+            if (listChildren[3].id == "answer1") {
+                totalCorrect++;
+                listChildren[3].classList.add("correct");
+            } else {
+                listChildren[3].classList.add("incorrect");
+            }
+
+            if (listChildren[4].id == "answer7") {
+                totalCorrect++;
+                listChildren[4].classList.add("correct");
+            } else {
+                listChildren[4].classList.add("incorrect");
+            }
+
+            if (listChildren[5].id == "answer5") {
+                totalCorrect++;
+                listChildren[5].classList.add("correct");
+            } else {
+                listChildren[5].classList.add("incorrect");
+            }
+
+            if (listChildren[6].id == "answer2") {
+                totalCorrect++;
+                listChildren[6].classList.add("correct");
+            }
+            else {
+                listChildren[6].classList.add("incorrect");
+            }
             // Progress bar.
             document.getElementById("totalCorrect").innerHTML = totalCorrect;
             progressBar();
