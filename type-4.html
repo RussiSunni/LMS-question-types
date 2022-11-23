@@ -73,9 +73,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
-        $(function () {
-            $("#list1").sortable();
-        });
+        // $(function () {
+        //     $("#list1").sortable();
+        // });
         $(function () {
             $("#list2").sortable();
         });
@@ -85,14 +85,17 @@
 <body>
     <div class="flex">
         <ul id="list1" class="sortable">
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+            <li class="ui-state-default">stinkreich</li>
+            <li class="ui-state-default">Mäuse</li>
+            <li class="ui-state-default">abserviert werden</li>
         </ul>
         <ul id="list2" class="sortable">
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+            <li id="answer1" class="ui-state-default">unhöflich abgewiesen,
+                fortgeschickt werden
+            </li>
+            <li id="answer2" class="ui-state-default">Geld</li>
+            <li id="answer3" class="ui-state-default">Sehr viel Geld besitzen.
+                So viel, dass andere Neid verspüren.</li>
         </ul>
     </div>
 
@@ -102,7 +105,7 @@
         <div id="progressBar">
             <div id="progress"></div>
         </div>&nbsp;
-        <span class="totalCorrect"><span id="totalCorrect"></span>&nbsp;/12</span>
+        <span class="totalCorrect"><span id="totalCorrect"></span>&nbsp;/3</span>
         <span style="margin-left: 50px">
             <button onclick="restart()">Lösung anzeigen</button>
             <button onclick="restart()">Wiederholen</button>
@@ -111,9 +114,64 @@
     <p>&nbsp;</p>
 
     <script>
+        let totalCorrect = 0;
+
         function checkAnswers() {
-            var list1 = document.getElementById("list1");
-            console.log(list1.childNodes);
+            var list2 = document.getElementById("list2");
+            var list2Children = list2.children;
+
+            if (list2Children[0].id == "answer3") {
+                totalCorrect++;
+            }
+            if (list2Children[1].id == "answer2") {
+                totalCorrect++;
+            }
+            if (list2Children[2].id == "answer1") {
+                totalCorrect++;
+            }
+
+
+            // Progress bar.
+            document.getElementById("totalCorrect").innerHTML = totalCorrect;
+            progressBar();
+
+            // Hide this button.
+            var checkAnswerBtn = document.getElementById("checkAnswerBtn");
+            checkAnswerBtn.classList.add("hidden");
+
+            //Unhide other buttons.
+            var progressGroup = document.getElementById("progressGroup");
+            progressGroup.classList.remove("hidden");
+
+            console.log(totalCorrect);
+        }
+
+        function restart() {
+            location.reload();
+        }
+
+
+        var i = 0;
+        function progressBar() {
+            var percentageCorrect = (totalCorrect / 3) * 100;
+
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("progress");
+                var width = 1;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    if (width <= percentageCorrect) {
+                        if (width >= 100) {
+                            clearInterval(id);
+                            i = 0;
+                        } else {
+                            width++;
+                            elem.style.width = width + "%";
+                        }
+                    }
+                }
+            }
         }
     </script>
 
