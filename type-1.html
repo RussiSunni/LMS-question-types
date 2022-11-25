@@ -10,13 +10,13 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: 16px;
             line-height: 1.8em;
-            background: lightgrey;
+            /* background: lightgrey; */
         }
 
-        .main {
+        /* .main {
             overflow: scroll;
             max-height: 70vh
-        }
+        } */
 
         button {
             color: blue;
@@ -25,6 +25,10 @@
             font-size: medium;
             margin-right: 10px;
             height: 30px;
+        }
+
+        input {
+            border-radius: 5px;
         }
 
         .mc-dropdown {
@@ -238,7 +242,7 @@
             }
 
             var q5bAnswer = document.getElementById("q5b").value;
-            if (q5bAnswer == "wird") {
+            if (q5bAnswer == "wählen") {
                 q5b.classList.add("correct");
                 totalCorrect++;
             }
@@ -296,7 +300,7 @@
             document.getElementById("q4a").value = "werden";
             document.getElementById("q4b").value = "kaufen";
 
-            document.getElementById("q5a").value = "wird / werden";
+            document.getElementById("q5a").value = "wird /  werden";
             document.getElementById("q5b").value = "wählen";
 
             document.getElementById("q6a").value = "Wirst";
