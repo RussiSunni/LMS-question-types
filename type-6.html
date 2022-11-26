@@ -203,7 +203,7 @@
             <div id="progressBar">
                 <div id="progress"></div>
             </div>&nbsp;
-            <span class="totalCorrect"><span id="totalCorrect"></span>&nbsp;/12</span>
+            <span class="totalCorrect"><span id="totalCorrect"></span>&nbsp;/41</span>
         </div><br>
         <div style="display: flex;">
             <button onclick="showCorrectAnswers()">
@@ -240,7 +240,12 @@
 
             const cat1 = document.getElementById("category1");
             var cat1Children = cat1.childNodes;
-            console.log(cat1Children);
+            for (let i = 0; i < cat1Children.length; i++) {
+                if (cat1Children[i].id == "a1") {
+                    console.log("correct");
+                }
+            }
+            //console.log(cat1Children);
 
 
 
@@ -272,7 +277,7 @@
 
         var i = 0;
         function progressBar() {
-            var percentageCorrect = (totalCorrect / 7) * 100;
+            var percentageCorrect = (totalCorrect / 41) * 100;
 
             if (i == 0) {
                 i = 1;
