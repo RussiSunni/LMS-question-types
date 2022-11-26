@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -67,9 +67,10 @@
 
         .draggable {
             padding: 5px;
-            float: left;
+            /* float: left; */
             margin: 0 10px 10px 0;
             font-size: .9em;
+            cursor: grab
         }
 
         .ui-widget-header p,
@@ -112,16 +113,31 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
         $(function () {
-            $("#draggable").draggable({ snap: true });
+            $(".draggable").draggable(
+            );
+            $(".droppable").droppable({
+                drop: function (event, ui) {
+                    var draggable = ui.draggable.prop('id');
+                    var droppable = event.target.id;
+                    document.getElementById(droppable).appendChild(document.getElementById(draggable));
+                    document.getElementById(draggable).style.left = 0;
+                    document.getElementById(draggable).style.top = 0;
+                    $(this)
+                        .addClass("ui-state-highlight")
+                }
+            });
         });
     </script>
 </head>
 
 <body>
-    <p><span id="draggable" class="draggable ui-widget-content">Huhn</span>
-        <span id="draggable" class="draggable ui-widget-content">Hai</span>
-        <span id="draggable" class="draggable ui-widget-content">Ratte</span>
-        <span id="draggable" class="draggable ui-widget-content">Katze</span>
+    <p ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">Drag me into the
+        rectangle!</p>
+    <div>
+        <span id="a1" class="draggable ui-widget-content">Huhn</span>
+        <span id="a2" class="draggable ui-widget-content">Hai</span>
+        <span id="a3" class="draggable ui-widget-content">Ratte</span>
+        <span id="a4" class="draggable ui-widget-content">Katze</span>
         <span id="draggable" class="draggable ui-widget-content">Löwe</span>
         <span id="draggable" class="draggable ui-widget-content">Delfin</span>
         <span id="draggable" class="draggable ui-widget-content">Wal</span>
@@ -159,21 +175,20 @@
         <span id="draggable" class="draggable ui-widget-content">Pferd</span>
         <span id="draggable" class="draggable ui-widget-content">Schaf</span>
         <span id="draggable" class="draggable ui-widget-content">Ziege</span>
+    </div>
 
-    </p>
-
-    <br>
+    <p>&nbsp;</p>
     <p>Bauernhoftiere:</p>
-    <div id="snaptarget" class="ui-widget-header drop-zone"></div>
+    <div id="category1" class="droppable ui-widget-header drop-zone"></div>
 
     <p>Haustiere:</p>
-    <div class="drop-zone"></div>
+    <div id="category2" class="droppable ui-widget-header drop-zone"></div>
 
     <p>Tiere in Afrika/Savanne:</p>
-    <div class="drop-zone"></div>
+    <div id="category3" class="droppable ui-widget-header drop-zone"></div>
 
     <p>Tiere im Wasser:</p>
-    <div class="drop-zone"></div> <br>
+    <div id="category4" class="droppable ui-widget-header drop-zone"></div> <br>
 
     <button id="checkAnswerBtn" onclick="checkAnswers()">
         <svg style="height: 15px; fill: blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -218,6 +233,7 @@
     <p>&nbsp;</p>
 
     <script>
+
         let totalCorrect = 0;
 
         function checkAnswers() {
