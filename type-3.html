@@ -1,0 +1,224 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.8em;
+            /* background: lightgrey; */
+        }
+
+        /* .main {
+            overflow: scroll;
+            max-height: 70vh
+        } */
+
+        button {
+            color: blue;
+            border: 1px solid blue;
+            padding: 5px;
+            font-size: medium;
+            margin-right: 10px;
+            height: 30px;
+        }
+
+        input {
+            font-size: 16px;
+            border-radius: 5px;
+            border-color: lightblue;
+            max-width: 100px
+        }
+
+        .correct {
+            background: lightgreen;
+        }
+
+        .incorrect {
+            background: lightsalmon;
+        }
+
+        #progressBar {
+            width: 200px;
+            border: 1px solid black;
+            border-radius: 0.25em;
+            background-color: lightgrey;
+        }
+
+        #progress {
+            width: 0%;
+            height: 30px;
+            background-color: green;
+        }
+
+        .totalCorrect {
+            font-size: 26px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (min-width: 600px) {
+            .visible {
+                display: flex;
+            }
+
+            .totalCorrect {
+                margin-right: 50px;
+            }
+
+            #mobileRestart {
+                display: none;
+            }
+        }
+
+
+        /* Small devices (portrait tablets and large phones, 600px and up) */
+        @media only screen and (max-width: 600px) {
+            .visible {
+                display: block;
+            }
+
+            #biggerRestart {
+                display: none;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <p>Joey: <input type="text" value="So">. <input type="text" value="Ross"> <input type="text" value="und">
+            Rachel sind
+            geschieden. Monica und
+            Chandler wären fast verheiratet. Sollen
+            wir uns auch zusammentun?</p>
+
+        <p>Phoebe: Das werden wir ganz sicher. Aber jetzt noch nicht.</p>
+
+        <p>Joey: Wirklich? Aber wann denn?</p>
+
+        <p>Phoebe: Naja…Ähm…Also vorher werden Monica und Chandler sich erstmal trennen und sie
+            werden, nebenbei bemerkt, stinkreich. Ja, aber es wird leider nicht gut geh’n.</p>
+
+        <p>Joey: Wow.</p>
+
+        <p>Phoebe: Nicht wahr? Und dann werde ich mich mit Chandler verheiraten wegen der Mäuse. Und
+            du nimmst dann Rachel zum Mann und ihr habt hübsche Kinder.</p>
+
+        <p>Joey: Wirklich toll.
+        </p>
+
+        <p>Phoebe: Aber dann heiraten wir und die anderen werden zum Abendessen serviert. Wir
+            übernehmen Chandlers Geld und Rachel's Kinder. Das Sorgerecht werden wir leicht kriegen
+            wegen Rachels Alkoholproblem.
+        </p>
+
+        <p>Joey: Ach so. Und was ist mit Ross?</p>
+
+        <p>Phoebe: Ich will nicht ins Detail gehen, aber…ähm…Wir haben Streit und ich bringe ihn um.</p>
+
+
+        <button id="checkAnswerBtn" onclick="checkAnswers()">
+            <svg style="height: 15px; fill: blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                <path
+                    d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+            </svg>
+            Überprüfen</button>
+
+        <div id="progressGroup" class="hidden">
+            <div style="display: flex;">
+                <div id="progressBar">
+                    <div id="progress"></div>
+                </div>&nbsp;
+                <span class="totalCorrect"><span id="totalCorrect"></span>&nbsp;/6</span>
+            </div><br>
+            <div style="display: flex;">
+                <button onclick="showCorrectAnswers()">
+                    <svg style="height: 15px; fill: blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z" />
+                    </svg>
+                    Lösung anzeigen</button>
+                <button id="biggerRestart" onclick="restart()">
+                    <svg style="height: 15px; fill: blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z" />
+                    </svg>
+                    Wiederholen</button>
+
+                <button id="mobileRestart" onclick="restart()">
+                    <svg style="height: 15px; fill: blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <p>&nbsp;</p>
+
+    </div>
+
+
+    <script>
+        // Check answers
+        let totalCorrect = 0;
+
+        function checkAnswers() {
+
+        }
+        // Progress bar.
+        document.getElementById("totalCorrect").innerHTML = totalCorrect;
+        progressBar();
+
+        // Hide this button.
+        var checkAnswerBtn = document.getElementById("checkAnswerBtn");
+        checkAnswerBtn.classList.add("hidden");
+        checkAnswerBtn.classList.remove("visible");
+
+        //Unhide other buttons.
+        var progressGroup = document.getElementById("progressGroup");
+        progressGroup.classList.remove("hidden");
+        progressGroup.classList.add("visible");
+        }
+
+        function restart() {
+            location.reload();
+        }
+
+        function showCorrectAnswers() {
+        }
+
+
+        var i = 0;
+        function progressBar() {
+            var percentageCorrect = (totalCorrect / 12) * 100;
+
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("progress");
+                var width = 1;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    if (width <= percentageCorrect) {
+                        if (width >= 100) {
+                            clearInterval(id);
+                            i = 0;
+                        } else {
+                            width++;
+                            elem.style.width = width + "%";
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
