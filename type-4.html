@@ -59,6 +59,14 @@
             display: none;
         }
 
+        #answer1Select,
+        #answer2Select,
+        #answer3Select {
+            border-radius: 5px;
+            font-size: 16px;
+            ;
+        }
+
         /* Medium devices (landscape tablets, 768px and up) */
         @media only screen and (min-width: 600px) {
             .visible {
@@ -96,7 +104,7 @@
             <li>Mäuse</li>
             <li>abserviert werden</li>
         </ol>
-        <ul id="list2">
+        <ul id="list2" style="list-style-type: none;">
             <li id="answer1">
                 <select id="answer1Select">
                     <option>
@@ -144,7 +152,7 @@
             <div id="progressBar">
                 <div id="progress"></div>
             </div>&nbsp;
-            <span class="totalCorrect"><span id="totalCorrect"></span>&nbsp;/12</span>
+            <span class="totalCorrect"><span id="totalCorrect"></span>&nbsp;/3</span>
         </div><br>
         <div style="display: flex;">
             <button onclick="showCorrectAnswers()">
@@ -184,15 +192,41 @@
 
             if (answer1.value == 3) {
                 totalCorrect++;
+                answer1.classList.add("correct");
             }
-            if (answer2.value == 2) {
-                totalCorrect++;
-            }
-            if (answer3.value == 1) {
-                totalCorrect++;
+            else {
+                answer1.classList.add("incorrect");
             }
 
+            if (answer2.value == 2) {
+                totalCorrect++;
+                answer2.classList.add("correct");
+            }
+            else {
+                answer2.classList.add("incorrect");
+            }
+
+            if (answer3.value == 1) {
+                totalCorrect++;
+                answer3.classList.add("correct");
+            }
+            else {
+                answer3.classList.add("incorrect");
+            }
+
+            // Progress bar.
+            document.getElementById("totalCorrect").innerHTML = totalCorrect;
             progressBar();
+
+            // Hide this button.
+            var checkAnswerBtn = document.getElementById("checkAnswerBtn");
+            checkAnswerBtn.classList.add("hidden");
+            checkAnswerBtn.classList.remove("visible");
+
+            //Unhide other buttons.
+            var progressGroup = document.getElementById("progressGroup");
+            progressGroup.classList.remove("hidden");
+            progressGroup.classList.add("visible");
         }
 
         function restart() {
