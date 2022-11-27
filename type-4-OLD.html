@@ -2,8 +2,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
     <style>
+        .sortable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 50%;
+        }
+
+        .sortable li {
+            margin: 0 3px 3px 3px;
+            padding: 0.4em;
+            padding-left: 1.5em;
+            font-size: 16px;
+            cursor: grab;
+        }
+
+        .sortable li span {
+            position: absolute;
+            margin-left: -1.3em;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 16px;
@@ -86,47 +107,32 @@
             }
         }
     </style>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#list1").sortable();
+        });
+        $(function () {
+            $("#list2").sortable();
+        });
+    </script>
 </head>
 
 <body>
     <div class="flex">
-        <ol id="list1">
-            <li>stinkreich</li>
-            <li>Mäuse</li>
-            <li>abserviert werden</li>
-        </ol>
-        <ul id="list2">
-            <li id="answer1">
-                <select id="answer1Select">
-                    <option>
-                    </option>
-                    <option value="1">unhöflich abgewiesen, fortgeschickt werden
-                    </option>
-                    <option value="2">Geld</option>
-                    <option value="3">Sehr viel Geld besitzen. So viel, dass andere Neid verspüren.</option>
-                </select>
+        <ul id="list1" class="sortable">
+            <li class="ui-state-default">stinkreich</li>
+            <li class="ui-state-default">Mäuse</li>
+            <li class="ui-state-default">abserviert werden</li>
+        </ul>
+        <ul id="list2" class="sortable">
+            <li id="answer1" class="ui-state-default">unhöflich abgewiesen,
+                fortgeschickt werden
             </li>
-            <li id="answer2">
-                <select id="answer2Select">
-                    <option>
-                    </option>
-                    <option value="1">unhöflich abgewiesen, fortgeschickt werden
-                    </option>
-                    <option value="2">Geld</option>
-                    <option value="3">Sehr viel Geld besitzen. So viel, dass andere Neid verspüren.</option>
-                </select>
-            </li>
-            <li id="answer3">
-                <select id="answer3Select">
-                    <option>
-                    </option>
-                    <option value="1">unhöflich abgewiesen, fortgeschickt werden
-                    </option>
-                    <option value="2">Geld</option>
-                    <option value="3">Sehr viel Geld besitzen. So viel, dass andere Neid verspüren.</option>
-                </select>
-            </li>
+            <li id="answer2" class="ui-state-default">Geld</li>
+            <li id="answer3" class="ui-state-default">Sehr viel Geld besitzen.
+                So viel, dass andere Neid verspüren.</li>
         </ul>
     </div>
     <br>
@@ -174,25 +180,72 @@
     <p>&nbsp;</p>
 
     <script>
+        // Make the height the same.
+        var list2 = document.getElementById("list2");
+        var list2Children = list2.children;
+
+        var maxHeight = 20;
+        for (let i = 0; i < list2Children.length; i++) {
+            if (maxHeight < list2Children[i].offsetHeight) {
+                // Find the biggest.
+                maxHeight = list2Children[i].offsetHeight;
+            }
+        }
+
+        var list1 = document.getElementById("list1");
+        var list1Children = list1.children;
+        for (let i = 0; i < list1Children.length; i++) {
+            list1Children[i].style.height = maxHeight - 10;
+        }
+
+        for (let i = 0; i < list2Children.length; i++) {
+            list2Children[i].style.height = maxHeight - 10;
+        }
+
+
+        console.log(maxHeight)
 
         let totalCorrect = 0;
-        var answer1 = document.getElementById("answer1Select");
-        var answer2 = document.getElementById("answer2Select");
-        var answer3 = document.getElementById("answer3Select");
 
         function checkAnswers() {
+            var list2 = document.getElementById("list2");
+            var list2Children = list2.children;
 
-            if (answer1.value == 3) {
+            if (list2Children[0].id == "answer3") {
                 totalCorrect++;
+                list2Children[0].classList.add("correct");
             }
-            if (answer2.value == 2) {
-                totalCorrect++;
+            else {
+                list2Children[0].classList.add("incorrect");
             }
-            if (answer3.value == 1) {
+            if (list2Children[1].id == "answer2") {
                 totalCorrect++;
+                list2Children[1].classList.add("correct");
+            }
+            else {
+                list2Children[1].classList.add("incorrect");
+            }
+            if (list2Children[2].id == "answer1") {
+                totalCorrect++;
+                list2Children[2].classList.add("correct");
+            }
+            else {
+                list2Children[2].classList.add("incorrect");
             }
 
+            // Progress bar.
+            document.getElementById("totalCorrect").innerHTML = totalCorrect;
             progressBar();
+
+            // Hide this button.
+            var checkAnswerBtn = document.getElementById("checkAnswerBtn");
+            checkAnswerBtn.classList.add("hidden");
+            checkAnswerBtn.classList.remove("visible");
+
+            //Unhide other buttons.
+            var progressGroup = document.getElementById("progressGroup");
+            progressGroup.classList.remove("hidden");
+            progressGroup.classList.add("visible");
         }
 
         function restart() {
@@ -200,9 +253,9 @@
         }
 
         function showCorrectAnswers() {
-            answer1.value = 3;
-            answer2.value = 2;
-            answer3.value = 1;
+            document.getElementById("answer1").innerHTML = "Sehr viel Geld besitzen. So viel, dass andere Neid verspüren.";
+            document.getElementById("answer2").innerHTML = "Geld";
+            document.getElementById("answer3").innerHTML = "unhöflich abgewiesen, fortgeschickt werden";
         }
 
 
