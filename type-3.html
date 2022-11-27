@@ -60,6 +60,46 @@
             display: none;
         }
 
+        .two {
+            width: 30px;
+        }
+
+        .three {
+            width: 40px;
+        }
+
+        .four {
+            width: 50px;
+        }
+
+        .five {
+            width: 50px;
+        }
+
+        .six {
+            width: 60px;
+        }
+
+        .seven {
+            width: 70px;
+        }
+
+        .eight {
+            width: 80px;
+        }
+
+        .nine {
+            width: 90px;
+        }
+
+        .ten {
+            width: 100px;
+        }
+
+        .eleven {
+            width: 110px;
+        }
+
         /* Medium devices (landscape tablets, 768px and up) */
         @media only screen and (min-width: 600px) {
             .visible {
@@ -92,18 +132,72 @@
 
 <body>
     <div class="main">
-        <p>Joey: <input type="text" value="So">. <input type="text" value="Ross"> <input type="text" value="und">
-            Rachel sind
-            geschieden. Monica und
-            Chandler wären fast verheiratet. Sollen
-            wir uns auch zusammentun?</p>
+        <p>Joey:
+            <input type="text" id="1a" value="So" class="two">.
+            <input id="1b" type="text" value="Ross" class="four">
+            <input id="1c" type="text" value="und" class="three">
+            <input id="1d" type="text" value="Rachel" class="six">
+            <input id="1e" type="text" value="sind" class="four">
+            <input id="1f" type="text" value="geschieden" class="ten">.
+            <input id="1g" type="text" value="Monica" class="six">
+            <input id="1h" type="text" value="und" class="three">
+            <input id="1i" type="text" value="Chandler" class="eight">
+            <input id="1j" type="text" value="wären" class="five">
+            <input id="1k" type="text" value="fast" class="four">
+            <input id="1l" type="text" value="verheiratet" class="eleven">.
+            <input id="1m" type="text" value="Sollen" class="six">
+            <input id="1n" type="text" value="wir" class="three">
+            <input id="1o" type="text" value="uns" class="three">
+            <input id="1p" type="text" value="auch" class="four">
+            <input id="1q" type="text" value="zusammentun" class="eleven">?
+        </p>
 
-        <p>Phoebe: Das werden wir ganz sicher. Aber jetzt noch nicht.</p>
+        <p>Phoebe:
+            <input id="2a" type="text" value="Das" class="three">
+            <input id="2b" type="text" value="werden" class="six">
+            <input id="2c" type="text" value="wir" class="three">
+            <input id="2d" type="text" value="ganz" class="four">
+            <input id="2e" type="text" value="sicher" class="six">.
+            <input id="2f" type="text" value="Aber" class="four">
+            <input id="2g" type="text" value="jetzt" class="five">
+            <input id="2h" type="text" value="noch" class="four">
+            <input id="2i" type="text" value="nicht" class="five">.
+        </p>
 
-        <p>Joey: Wirklich? Aber wann denn?</p>
+        <p>Joey:
+            <input id="3a" type="text" value="Wirklich" class="eight">?
+            <input id="3b" type="text" value="Aber" class="four">
+            <input id="3c" type="text" value="wann" class="four">
+            <input id="3d" type="text" value="denn" class="four">?
+        </p>
 
-        <p>Phoebe: Naja…Ähm…Also vorher werden Monica und Chandler sich erstmal trennen und sie
-            werden, nebenbei bemerkt, stinkreich. Ja, aber es wird leider nicht gut geh’n.</p>
+        <p>Phoebe:
+            <input id="4a" type="text" value="Naja" class="four">...
+            <input id="4b" type="text" value="Ähm" class="three">...
+            <input id="4c" type="text" value="Also" class="eight">
+            <input id="4d" type="text" value="vorher" class="eight">
+            <input id="4e" type="text" value="werden" class="eight">
+            <input id="4f" type="text" value="Monica" class="eight">
+            <input id="4g" type="text" value="und" class="eight">
+            <input id="4h" type="text" value="Chandler" class="eight">
+            <input id="4i" type="text" value="sich" class="eight">
+            <input id="4j" type="text" value="erstmal" class="eight">
+            <input id="4k" type="text" value="trennen" class="eight">
+            <input id="4l" type="text" value="und" class="eight">
+            <input id="4m" type="text" value="sie" class="eight">
+            <input id="4n" type="text" value="werden" class="eight">,
+            <input id="4o" type="text" value="nebenbei" class="eight">
+            <input id="4p" type="text" value="bemerkt" class="eight">,
+            <input id="4q" type="text" value="stinkreich" class="eight">.
+            <input id="4r" type="text" value="Ja" class="eight">,
+            <input id="4s" type="text" value="aber" class="eight">
+            <input id="4t" type="text" value="es" class="eight">
+            <input id="4u" type="text" value="wird" class="eight">
+            <input id="4v" type="text" value="leider" class="eight">
+            <input id="4w" type="text" value="nicht" class="eight">
+            <input id="4x" type="text" value="gut" class="eight">
+            <input id="4y" type="text" value=" geh’n" class="eight">.
+        </p>
 
         <p>Joey: Wow.</p>
 
@@ -174,21 +268,32 @@
 
         function checkAnswers() {
 
-        }
-        // Progress bar.
-        document.getElementById("totalCorrect").innerHTML = totalCorrect;
-        progressBar();
+            //P1
+            if (document.getElementById("1f").value == "verheiratet") {
+                totalCorrect++;
+                document.getElementById("1f").classList.add("correct");
+            }
+            else {
+                document.getElementById("1f").classList.add("incorrect");
+            }
 
-        // Hide this button.
-        var checkAnswerBtn = document.getElementById("checkAnswerBtn");
-        checkAnswerBtn.classList.add("hidden");
-        checkAnswerBtn.classList.remove("visible");
 
-        //Unhide other buttons.
-        var progressGroup = document.getElementById("progressGroup");
-        progressGroup.classList.remove("hidden");
-        progressGroup.classList.add("visible");
+            // Progress bar.
+            document.getElementById("totalCorrect").innerHTML = totalCorrect;
+            progressBar();
+
+            // Hide this button.
+            var checkAnswerBtn = document.getElementById("checkAnswerBtn");
+            checkAnswerBtn.classList.add("hidden");
+            checkAnswerBtn.classList.remove("visible");
+
+            //Unhide other buttons.
+            var progressGroup = document.getElementById("progressGroup");
+            progressGroup.classList.remove("hidden");
+            progressGroup.classList.add("visible");
         }
+
+
 
         function restart() {
             location.reload();
