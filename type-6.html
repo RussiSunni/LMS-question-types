@@ -66,11 +66,11 @@
         }
 
         .draggable {
-            padding: 5px;
+            padding: 0px 5px;
             /* float: left; */
             margin: 0 10px 10px 0;
-            font-size: .9em;
-            cursor: grab
+            cursor: grab;
+            display: inline-block
         }
 
         .ui-widget-header p,
@@ -177,17 +177,17 @@
         <span id="Ziege" class="draggable ui-widget-content">Ziege</span>
     </div>
 
-    <p>&nbsp;</p>
-    <p>Bauernhoftiere:</p>
+
+    <p><strong>Bauernhoftiere:</strong></p>
     <div id="category1" class="droppable ui-widget-header drop-zone"></div>
 
-    <p>Haustiere:</p>
+    <p><strong>Haustiere:</strong></p>
     <div id="category2" class="droppable ui-widget-header drop-zone"></div>
 
-    <p>Tiere in Afrika/Savanne:</p>
+    <p><strong>Tiere in Afrika/Savanne:</strong></p>
     <div id="category3" class="droppable ui-widget-header drop-zone"></div>
 
-    <p>Tiere im Wasser:</p>
+    <p><strong>Tiere im Wasser:</strong></p>
     <div id="category4" class="droppable ui-widget-header drop-zone"></div> <br>
 
     <button id="checkAnswerBtn" onclick="checkAnswers()">
