@@ -10,8 +10,15 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: 16px;
             line-height: 1.8em;
-            /* background: lightgrey; */
+            background-image: url("https://carolin-ecomap.s3.amazonaws.com/Background.jpg");
+            background-color: #cccccc;
+            background-size: cover;
         }
+
+        /* .background {
+            padding: 5px;
+            background-color: white;
+        } */
 
         /* .main {
             overflow: scroll;
@@ -100,19 +107,22 @@
 <body>
 
     <!-- FILL IN THE GAPS (NO WORDS) -->
+    <div class="background">
+        <p>Tim&nbsp;<input type="text" id="q1a">&nbsp;mit Abdel zum Schulball <input type="text" id="q1b">. (gehen)</p>
+        <p>Ich&nbsp;<input type="text" id="q2a">&nbsp;morgen Kuchen&nbsp;<input type="text" id="q2b">. (backen)</p>
+        <p>Wir&nbsp;<input type="text" id="q3a">&nbsp; am Samstag in den Urlaub&nbsp;<input type="text" id="q3b">&nbsp;.
+            (fahren)</p>
+        <p>Anna und Melek&nbsp;<input type="text" id="q4a">&nbsp; sich gemeinsam einen Hund
+            &nbsp;<input type="text" id="q4b">&nbsp;. (kaufen)</p>
+        <p>Sie &nbsp;<input type="text" id="q5a">&nbsp; den Bus&nbsp;<input type="text" id="q5b">&nbsp;. (wählen)</p>
+        <p><strong>Bonus-Aufgabe:</strong></p>
+        <p>Bedenke! Bei Fragestellungen steht das Verb an erster Stelle. Beim Futur I beginnt jedoch nicht
+            das Vollverb den Satz.</p>
+        <p><input type="text" id="q6a">&nbsp;du morgen auch zu Emilys Geburtstag&nbsp;<input type="text" id="q6b">?
+            (kommen)
+        </p>
 
-    <p>Tim&nbsp;<input type="text" id="q1a">&nbsp;mit Abdel zum Schulball <input type="text" id="q1b">. (gehen)</p>
-    <p>Ich&nbsp;<input type="text" id="q2a">&nbsp;morgen Kuchen&nbsp;<input type="text" id="q2b">. (backen)</p>
-    <p>Wir&nbsp;<input type="text" id="q3a">&nbsp; am Samstag in den Urlaub&nbsp;<input type="text" id="q3b">&nbsp;.
-        (fahren)</p>
-    <p>Anna und Melek&nbsp;<input type="text" id="q4a">&nbsp; sich gemeinsam einen Hund
-        &nbsp;<input type="text" id="q4b">&nbsp;. (kaufen)</p>
-    <p>Sie &nbsp;<input type="text" id="q5a">&nbsp; den Bus&nbsp;<input type="text" id="q5b">&nbsp;. (wählen)</p>
-    <p><strong>Bonus-Aufgabe:</strong></p>
-    <p>Bedenke! Bei Fragestellungen steht das Verb an erster Stelle. Beim Futur I beginnt jedoch nicht
-        das Vollverb den Satz.</p>
-    <p><input type="text" id="q6a">&nbsp;du morgen auch zu Emilys Geburtstag&nbsp;<input type="text" id="q6b">? (kommen)
-    </p>
+    </div>
     <button id="checkAnswerBtn" onclick="checkAnswers()">
         <svg style="height: 15px; fill: blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->

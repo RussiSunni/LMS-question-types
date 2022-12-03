@@ -9,12 +9,14 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: 16px;
             line-height: 1.8em;
-            /* background: lightgrey; */
+            background-image: url("https://carolin-ecomap.s3.amazonaws.com/Background.jpg");
+            background-color: #cccccc;
+            background-size: cover;
         }
 
-        /* .main {
-            overflow: scroll;
-            max-height: 70vh
+        /* .background {
+            padding: 5px;
+            background-color: white;
         } */
 
         button {
@@ -133,7 +135,7 @@
 <body>
     <p ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">Drag me into the
         rectangle!</p>
-    <div>
+    <div background>
         <span id="Huhn" class="draggable ui-widget-content">Huhn</span>
         <span id="Hai" class="draggable ui-widget-content">Hai</span>
         <span id="Ratte" class="draggable ui-widget-content">Ratte</span>
